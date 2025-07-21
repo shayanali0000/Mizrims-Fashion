@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mizrims Fashion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f5f5f5, #dcdcdc);
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="text-gray-900">
+
+  <!-- Header -->
+  <header class="w-full py-4 px-6 flex justify-between items-center bg-white/80 text-[#5a3a22] shadow-md">
+    <h1 class="text-2xl font-bold">Mizrims Fashion</h1>
+    <nav>
+      <ul class="flex space-x-6 font-semibold">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center text-center py-24 px-4">
+    <h2 class="text-4xl md:text-5xl font-bold text-[#5a3a22] mb-4">Welcome to Mizrims Fashion</h2>
+    <p class="text-lg md:text-xl mb-8">Premium Winter Hoodies. Warmth meets Elegance.</p>
+    <a href="#collection" class="bg-[#5a3a22] text-white px-6 py-3 rounded-full text-lg hover:bg-[#7a5433] transition">Explore Collection</a>
+  </section>
+
+  <!-- Featured Hoodies Section -->
+  <section id="collection" class="px-6 pb-16 bg-gradient-to-br from-[#f5f5f5] to-[#e5e5e5]">
+    <div class="max-w-6xl mx-auto py-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Hoodie Cards -->
+      </div>
+
+      <!-- Contact Buttons -->
+      <div class="mt-10 flex flex-col items-center gap-2">
+        <div class="flex gap-6">
+          <a href="mailto:mizrimfashions@gmail.com" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition">Email Us</a>
+          <a href="https://wa.me/923360129771" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full transition">Order on WhatsApp</a>
+        </div>
+        <p class="text-center text-sm text-[#5a3a22] mt-2">There are more designs available! Just contact us!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg overflow-hidden relative max-w-sm w-full shadow-lg">
+      <img id="modalImg" src="" class="w-full h-96 object-cover">
+      <div class="absolute bottom-0 left-0 right-0 p-4 bg-white flex justify-between items-center">
+        <div id="modalPrice" class="text-[#5a3a22] font-semibold">PKR</div>
+        <a href="https://wa.me/923360129771" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Order Now</a>
+      </div>
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-white bg-gray-700 rounded-full w-8 h-8">×</button>
+    </div>
+  </div>
+
+  <!-- Why Mizrims Section -->
+  <section id="about" class="py-16 px-6 bg-white/60">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold text-[#5a3a22] mb-6">Why Mizrims?</h3>
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-2">🌟 Premium Fabric</h4>
+          <p>We use only the finest, soft-touch materials for warmth and comfort.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-2">🇵🇰 Winter Aesthetic</h4>
+          <p>Designed with the elegance and heritage of Pakistani winter fashion in mind.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-2">💬 WhatsApp Ordering</h4>
+          <p>Place orders instantly with our personalized WhatsApp shopping assistant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-[#d4d4d4] text-center py-8 px-4">
+    <p class="text-sm text-gray-700">© 2025 Mizrims Fashion. All Rights Reserved.</p>
+    <p class="text-sm text-gray-700 mt-1">Order Now via WhatsApp</p>
+    <div class="mt-3 flex justify-center space-x-4">
+      <span class="text-gray-700">📸</span>
+      <span class="text-gray-700">💬</span>
+    </div>
+  </footer>
+
+  <script>
+    const hoodies = [
+      { img: 'images/hoodie1.jpeg', price: 'PKR 2,999', name: 'Classic Mist' },
+      { img: 'images/hoodie2.jpeg', price: 'PKR 3,199', name: 'Winter Ash' },
+      { img: 'images/hoodie3.jpeg', price: 'PKR 2,849', name: 'Snow Drift' },
+      { img: 'images/hoodie4.jpeg', price: 'PKR 3,499', name: 'Coffee Haze' },
+      { img: 'images/hoodie5.jpeg', price: 'PKR 2,750', name: 'Moon Frost' },
+      { img: 'images/hoodie6.jpeg', price: 'PKR 3,100', name: 'Smoky Brown' },
+      { img: 'images/hoodie7.jpeg', price: 'PKR 3,250', name: 'Wool Crest' },
+      { img: 'images/hoodie8.jpeg', price: 'PKR 2,980', name: 'Oak Chill' },
+      { img: 'images/hoodie9.jpeg', price: 'PKR 2,800', name: 'Almond Cream' },
+      { img: 'images/hoodie10.jpeg', price: 'PKR 3,050', name: 'Dune Shade' },
+      { img: 'images/hoodie11.jpeg', price: 'PKR 3,000', name: 'Dust Cloud' },
+      { img: 'images/hoodie12.jpeg', price: 'PKR 2,950', name: 'Urban Rust' },
+      { img: 'images/hoodie13.jpeg', price: 'PKR 2,899', name: 'Frost Oak' },
+      { img: 'images/hoodie14.jpeg', price: 'PKR 3,199', name: 'Earth Drift' },
+      { img: 'images/hoodie15.jpeg', price: 'PKR 3,050', name: 'Stone Cream' },
+      { img: 'images/hoodie16.jpeg', price: 'PKR 2,999', name: 'Sahara Blend' },
+      { img: 'images/hoodie17.jpeg', price: 'PKR 3,200', name: 'Silk Amber' },
+      { img: 'images/hoodie18.jpeg', price: 'PKR 2,850', name: 'Maple Fade' },
+      { img: 'images/hoodie19.jpeg', price: 'PKR 3,000', name: 'Wood Smoke' },
+      { img: 'images/hoodie20.jpeg', price: 'PKR 2,970', name: 'Dusty Fern' },
+      { img: 'images/hoodie21.jpeg', price: 'PKR 2,980', name: 'Fog Trail' },
+      { img: 'images/hoodie22.jpeg', price: 'PKR 3,220', name: 'Vintage Oak' }
+    ];
+
+    const container = document.querySelector('#collection .grid');
+    hoodies.forEach(h => {
+      const card = document.createElement('div');
+      card.className = 'w-full rounded-lg shadow hover:shadow-lg transition overflow-hidden bg-white cursor-pointer';
+      card.innerHTML = `
+        <img src="${h.img}" alt="${h.name}" class="w-full h-64 object-cover">
+        <div class="p-4 text-center font-semibold text-[#5a3a22]">
+          <div class="flex justify-between text-sm">
+            <span>${h.name}</span>
+            <span>${h.price}</span>
+          </div>
+        </div>
+      `;
+      card.onclick = () => openModal(h.img, `${h.name} - ${h.price}`);
+      container.appendChild(card);
+    });
+
+    function openModal(img, price) {
+      document.getElementById('modalImg').src = img;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

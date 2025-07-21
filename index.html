@@ -14,6 +14,10 @@
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
     }
+    .highlight {
+      border: 3px solid #5a3a22;
+      box-shadow: 0 0 10px #7a5433;
+    }
   </style>
 </head>
 <body class="text-gray-900">
@@ -59,9 +63,13 @@
   <div id="modal" class="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center hidden">
     <div class="bg-white rounded-lg overflow-hidden relative max-w-sm w-full shadow-lg">
       <img id="modalImg" src="" class="w-full h-96 object-cover">
-      <div class="absolute bottom-0 left-0 right-0 p-4 bg-white flex justify-between items-center">
-        <div id="modalPrice" class="text-[#5a3a22] font-semibold">PKR</div>
-        <a href="https://wa.me/923360129771" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Order Now</a>
+      <div class="p-4">
+        <div id="modalPrice" class="text-[#5a3a22] font-semibold text-lg mb-1">PKR</div>
+        <div id="modalDescription" class="text-sm text-gray-600 mb-3">Soft fleece inner lining, smooth exterior, and stitched to perfection. Perfect for winter wear with a modern cut.</div>
+        <div class="flex justify-between items-center">
+          <a href="https://wa.me/923360129771" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Order Now</a>
+          <button onclick="addToCart()" class="bg-[#5a3a22] text-white px-4 py-2 rounded hover:bg-[#7a5433]">Add to Cart</button>
+        </div>
       </div>
       <button onclick="closeModal()" class="absolute top-2 right-2 text-white bg-gray-700 rounded-full w-8 h-8">×</button>
     </div>
@@ -99,7 +107,10 @@
   </footer>
 
   <script>
-    const hoodies = [
+    const hoodies = [...document.querySelectorAll('.grid')][0];
+    let selectedCard = null;
+
+    const hoodieData = [
       { img: 'images/hoodie1.jpeg', price: 'PKR 2,999', name: 'Classic Mist' },
       { img: 'images/hoodie2.jpeg', price: 'PKR 3,199', name: 'Winter Ash' },
       { img: 'images/hoodie3.jpeg', price: 'PKR 2,849', name: 'Snow Drift' },
@@ -124,8 +135,7 @@
       { img: 'images/hoodie22.jpeg', price: 'PKR 3,220', name: 'Vintage Oak' }
     ];
 
-    const container = document.querySelector('#collection .grid');
-    hoodies.forEach(h => {
+    hoodieData.forEach(h => {
       const card = document.createElement('div');
       card.className = 'w-full rounded-lg shadow hover:shadow-lg transition overflow-hidden bg-white cursor-pointer';
       card.innerHTML = `
@@ -137,18 +147,26 @@
           </div>
         </div>
       `;
-      card.onclick = () => openModal(h.img, `${h.name} - ${h.price}`);
-      container.appendChild(card);
+      card.onclick = () => openModal(h.img, `${h.name} - ${h.price}`, card);
+      hoodies.appendChild(card);
     });
 
-    function openModal(img, price) {
+    function openModal(img, price, card) {
       document.getElementById('modalImg').src = img;
       document.getElementById('modalPrice').innerText = price;
       document.getElementById('modal').classList.remove('hidden');
+      selectedCard = card;
     }
 
     function closeModal() {
       document.getElementById('modal').classList.add('hidden');
+    }
+
+    function addToCart() {
+      if (selectedCard) {
+        selectedCard.classList.add('highlight');
+      }
+      closeModal();
     }
   </script>
 
